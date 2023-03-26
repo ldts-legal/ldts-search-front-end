@@ -69,8 +69,8 @@
     // CORS (*) must be enabled in the index before using the demo app.
 
     // Initialize and connect to your search service
-    var automagic = new AzSearch.Automagic({ index: "cosmosdb-index", queryKey: "jjrOkSqqrxGeA3ZgHJ72Xk0PuPOKkWf5IU2QAzJbIaAzSeCrMpgH", service: "ldtssearch", dnsSuffix: "search.windows.net" });
-
+    var automagic = new AzSearch.Automagic({ index: "ldts-legal-index", queryKey: "jjrOkSqqrxGeA3ZgHJ72Xk0PuPOKkWf5IU2QAzJbIaAzSeCrMpgH", service: "ldtssearch", dnsSuffix:"search.windows.net" });
+    
     const resultTemplate =
       `<div class="card mt-2">
         <div class="card-header">
