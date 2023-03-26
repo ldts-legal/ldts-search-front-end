@@ -1,103 +1,117 @@
+<!doctype html>
+<html lang="en">
 
-
-<!DOCTYPE html>
 <head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@microsoft/azsearch.js@0.0.21/dist/AzSearch.css">
-    <title>Azure Cognitive Search Demo App</title>
-    <style>
-        .searchResults__result h4 {
-            margin-top: 0px;
-            text-transform: uppercase;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Case Law Cloud AI Searcher</title>
 
-        .searchResults__result .resultDescription {
-            margin: 0.5em 0 0 0;
-        }
-    </style>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbar-static/">
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="navbar-top.css" rel="stylesheet">
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#facetPanel" aria-expanded="false"
-                        aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="row">
-                        <div class="col-md-2 pagelabel">
-                            <a class="navbar-brand pagelabel" target="_blank" href="https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices">Case Law Cloud AI Searcher</a>
-                        </div>
-                        <div id="searchBox" class="col-mid-8 col-sm-8 col-xs-6"></div>
-                        <div id="navbar" class="navbar-collapse collapse">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="container-fluid">
-            <div class="row">
-                <div id="facetPanel" class="col-sm-3 col-md-3 sidebar collapse">
-                    <div id="clearFilters"></div>
-                    <ul class="nav nav-sidebar">
-                        <div className="panel panel-primary behclick-panel">
-                            
-                        </div>
-                    </ul>
-                </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 results_section">
-                    <div id="results" class="row placeholders">
-                    </div>
-                    <div id="pager" class="row">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bootstrap core JavaScript
-            ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-</body>
-<!-- Dependencies -->
-<script src="https://cdn.jsdelivr.net/react/15.5.0/react.min.js"></script>
-<script src="https://cdn.jsdelivr.net/react/15.5.0/react-dom.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/redux/3.6.0/redux.min.js"></script>
-<!-- Main -->
-<script src="https://cdn.jsdelivr.net/npm/@microsoft/azsearch.js@0.0.21/dist/AzSearch.bundle.js"></script>
-<script>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Case Law Cloud AI Searcher</a>
+      <div id="searchBox"></div>
+    </div>
+  </nav>
+
+  <main class="container-fluid">
+    <div id="results" class="row placeholders">
+    </div>
+    <div id="pager" class="row m-2">
+    </div>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/react/15.5.0/react.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/react/15.5.0/react-dom.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/redux/3.6.0/redux.min.js"></script>
+  <!-- Main -->
+  <script src="https://cdn.jsdelivr.net/npm/@microsoft/azsearch.js@0.0.21/dist/AzSearch.bundle.js"></script>
+  <script>
     // WARNING
     // For demonstration purposes only, do not use in a production environment. For simplicity, this is a single HTML page that has the query key to the search service.
     // CORS (*) must be enabled in the index before using the demo app.
 
     // Initialize and connect to your search service
-    var automagic = new AzSearch.Automagic({ index: "cosmosdb-index", queryKey: "jjrOkSqqrxGeA3ZgHJ72Xk0PuPOKkWf5IU2QAzJbIaAzSeCrMpgH", service: "ldtssearch", dnsSuffix:"search.windows.net" });
+    var automagic = new AzSearch.Automagic({ index: "cosmosdb-index", queryKey: "jjrOkSqqrxGeA3ZgHJ72Xk0PuPOKkWf5IU2QAzJbIaAzSeCrMpgH", service: "ldtssearch", dnsSuffix: "search.windows.net" });
 
-    const resultTemplate = `<div class="col-xs-12 col-sm-9 col-md-9"><p><b>Current Mode: </b>ChatGPT5-powered Ludicrous Mode</p><p><b>Case: </b>{{id}}</p><p>This is a <b>Canlii case legal document</b> extracted from their database based on your search query.</p><p><b> Direct link to Canlii page: </b></p><p><a href='{{url}}'> {{url}} </a></p><p><b>People involved in the case: </b></p><p>{{people}}</p><p><b>Locations involved in the case: </p><p></b>{{locations}}</p><p><p><b>Key organizations referred to in the case: </b></p><p>{{organizations}}</p><b>Content of the Case: </b></p><div class="resultDescription">{{{content}}}</div></div>`;
+    const resultTemplate =
+      `<div class="card mt-2">
+        <div class="card-header">
+          Case: </b>{{id}}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h5 class="card-title">Link to case</h5>
+            <p class="card-text"><a href='{{url}}'> {{url}} </a></p>
+            <p class="card-text">This is a <b>Canlii case legal document</b> extracted from their database based on your search query.</p>
+          </li>
+          <li class="list-group-item">
+            <h5 class="card-title">People involved in the case</h5>
+            <p class="card-text">{{people}}</p>
+          </li>
+          <li class="list-group-item">
+            <h5 class="card-title">Locations involved in the case</h5>
+            <p class="card-text">{{locations}}</p>
+          </li>
+          <li class="list-group-item">
+            <h5 class="card-title">Key organizations referred to in the case</h5>
+            <p class="card-text">{{organizations}}</p>
+          </li>
+          <li class="list-group-item">
+            <h5 class="card-title">Content of the Case</h5>
+            <p class="card-text">{{{content}}}</p>
+          </li>
+        </ul>
+      </div>`;
 
-    // add a results view using the template defined above
+    // // add a results view using the template defined above
     automagic.addResults("results", { count: true }, resultTemplate);
-    
-    // Adds a pager control << 1 2 3 ... >>
+
+    // // Adds a pager control << 1 2 3 ... >>
     automagic.addPager("pager");
-    
-        automagic.addSearchBox("searchBox");
-        
-    
+
+    automagic.addSearchBox("searchBox");
 
     // Adds a button to clear any applied filters
     automagic.addClearFiltersButton("clearFilters");
-</script>
-<style>
-</style>
-</html>azsearchjsApp.html
+  </script>
+</body>
+
+</html>
